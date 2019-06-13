@@ -31,15 +31,15 @@
 import axios from 'axios'
 import store from '../store.js'
 export default {
-  name: 'Register', //this is the name of the component
+  name: 'Register', // this is the name of the component
   data () {
     return {
       registerForm: {
         username: '',
         email: '',
         password: '',
-        submitted: false,  // 是否点击了 submit 按钮
-        errors: 0,  // 表单是否在前端验证通过，0 表示没有错误，验证通过
+        submitted: false, // 是否点击了 submit 按钮
+        errors: 0, // 表单是否在前端验证通过，0 表示没有错误，验证通过
         usernameError: null,
         emailError: null,
         passwordError: null
@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     onSubmit (e) {
-      this.registerForm.submitted = true  // 先更新状态
+      this.registerForm.submitted = true // 先更新状态
       this.registerForm.errors = 0
       if (!this.registerForm.username) {
         this.registerForm.errors++
@@ -101,8 +101,8 @@ export default {
         })
     },
     validEmail: function (email) {
-      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      return re.test(email)
     }
   }
 }

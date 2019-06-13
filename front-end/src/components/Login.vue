@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <alert 
+    <alert
       v-if="sharedState.is_new"
       v-bind:variant="alertVariant"
       v-bind:message="alertMessage">
@@ -37,7 +37,7 @@ import axios from 'axios'
 import Alert from './Alert'
 import store from '../store.js'
 export default {
-  name: 'Login',  //this is the name of the component
+  name: 'Login', // this is the name of the component
   components: {
     alert: Alert
   },
@@ -49,8 +49,8 @@ export default {
       loginForm: {
         username: '',
         password: '',
-        submitted: false,  // 是否点击了 submit 按钮
-        errors: 0,  // 表单是否在前端验证通过，0 表示没有错误，验证通过
+        submitted: false, // 是否点击了 submit 按钮
+        errors: 0, // 表单是否在前端验证通过，0 表示没有错误，验证通过
         usernameError: null,
         passwordError: null
       }
@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     onSubmit (e) {
-      this.loginForm.submitted = true  // 先更新状态
+      this.loginForm.submitted = true // 先更新状态
       this.loginForm.errors = 0
       if (!this.loginForm.username) {
         this.loginForm.errors++
@@ -84,16 +84,16 @@ export default {
           'password': this.loginForm.password
         }
       }).then((response) => {
-          // handle success
-          window.localStorage.setItem('madblog-token', response.data.token)
-          store.resetNotNewAction()
-          store.loginAction()
-          if (typeof this.$route.query.redirect == 'undefined') {
-            this.$router.push('/')
-          } else {
-            this.$router.push(this.$route.query.redirect)
-          }
-        })
+        // handle success
+        window.localStorage.setItem('madblog-token', response.data.token)
+        store.resetNotNewAction()
+        store.loginAction()
+        if (typeof this.$route.query.redirect === 'undefined') {
+          this.$router.push('/')
+        } else {
+          this.$router.push(this.$route.query.redirect)
+        }
+      })
         .catch((error) => {
           // handle error
           if (error.response.status == 401) {

@@ -1,19 +1,25 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <navbar></navbar>
+    <!-- <navbar></navbar> -->
+    <!-- <myhome></myhome> -->
+    <headbar></headbar>
     <router-view></router-view>
-
+    
   </div>
 </template>
 
 <script>
-import Navbar from './components/Navbar.vue'
+// import Navbar from './components/Navbar.vue'
+import MyHome from './components/MyHome.vue'
+import HeadBar from './components/HeadBar.vue'
 
 export default {
   name: 'app',
   components: {
-    navbar: Navbar
+    // navbar: Navbar,
+    myhome: MyHome,
+    headbar: HeadBar
   }
 }
 </script>

@@ -3,7 +3,8 @@ export default {
   state: {
     is_new: false,
     // eslint-disable-next-line
-    is_authenticated: window.localStorage.getItem('madblog-token') ? true : false
+    is_authenticated: window.localStorage.getItem('madblog-token') ? true : false,
+    is_login: window.localStorage.getItem('token') ? true : false,
   },
   setNewAction () {
     if (this.debug) {
@@ -18,14 +19,16 @@ export default {
   },
   loginAction () {
     if (this.debug) {
-      console.log(window.localStorage.getItem('madblog-token'))
+      console.log(window.localStorage.getItem('token'))
       console.log('loginAction triggered')
     }
     this.state.is_authenticated = true
+    this.state.is_login = true
   },
   logoutAction () {
     if (this.debug) console.log('logoutAction triggered')
-    window.localStorage.removeItem('madblog-token')
+    window.localStorage.removeItem('token')
     this.state.is_authenticated = false
+    this.state.is_login = false
   }
 }
